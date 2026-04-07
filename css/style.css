@@ -1,0 +1,316 @@
+/* ==============================================================
+   AUDAZ JIU JITSU - STYLE GUIDE
+   Theme: Minimalist, Black & White, Premium Athletic
+============================================================== */
+
+:root {
+    --color-black: #050505;
+    --color-black-light: #111111;
+    --color-white: #ffffff;
+    --color-gray-light: #f4f4f4;
+    --color-gray-border: #333333;
+    
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* ==============================================================
+   TYPOGRAPHY & GLOBAL 
+============================================================== */
+body {
+    font-family: var(--font-body);
+    color: var(--color-black);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link, .btn-uppercase {
+    font-family: var(--font-heading);
+}
+
+.font-inter {
+    font-family: var(--font-body) !important;
+}
+
+.fw-900 {
+    font-weight: 900 !important;
+}
+
+.letter-spacing {
+    letter-spacing: 2px;
+}
+
+/* Spacing Utilities */
+.py-s {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.spacing-xl {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+/* Base override */
+.bg-black {
+    background-color: var(--color-black) !important;
+}
+
+/* ==============================================================
+   COMPONENTS
+============================================================== */
+/* Floating WhatsApp Button */
+.floating-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-wa:hover {
+    transform: translateY(-5px);
+    background-color: #1ebc5a;
+    color: white;
+}
+
+/* Buttons */
+.btn {
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.custom-hover-btn:hover {
+    background-color: transparent !important;
+    color: white !important;
+    border-color: white !important;
+}
+
+.btn-aula {
+    border-width: 2px;
+}
+
+.btn-aula:hover {
+    background-color: var(--color-white);
+    color: var(--color-black) !important;
+}
+
+/* ==============================================================
+   SECTIONS
+============================================================== */
+
+/* Navbar */
+.navbar {
+    transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+.navbar.scrolled {
+    background-color: var(--color-black) !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    position: relative;
+    margin: 0 10px;
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+    color: var(--color-white) !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: white;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after, .navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    background-color: var(--color-black);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Darken and grayscale the background to fit the b&w mood */
+    filter: grayscale(100%) brightness(0.6);
+    z-index: 0;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    z-index: 10;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-20px) translateX(-50%); }
+    60% { transform: translateY(-10px) translateX(-50%); }
+}
+
+/* Metodologia & Cards */
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease;
+}
+
+.feature-card i {
+    color: var(--color-white);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover i {
+    transform: scale(1.1);
+}
+
+/* Galeria */
+.hover-zoom {
+    transition: transform 0.5s ease;
+}
+
+.col-md-3:hover .hover-zoom {
+    transform: scale(1.05);
+}
+
+.col-md-3 {
+    overflow: hidden;
+}
+
+/* Unidades, Horários & Planos */
+.unidade-nav .nav-link {
+    color: var(--color-black);
+    background-color: transparent;
+    border: 1px solid var(--color-black);
+    border-radius: 0;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.unidade-nav .nav-link.active, .unidade-nav .nav-link:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.schedule-table th {
+    background: transparent;
+}
+.schedule-table td {
+    background: transparent;
+}
+
+.plan-card.transition-all {
+    transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* Cta Image Specific */
+.cta-section {
+    min-height: 60vh;
+}
+
+.max-w-700 {
+    max-width: 700px;
+}
+.max-w-900 {
+    max-width: 900px;
+}
+
+/* Catálogo */
+.cat-item {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.cat-item img {
+    transition: transform 0.5s ease;
+}
+
+.cat-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Placeholders */
+.placeholder-img {
+    filter: grayscale(100%);
+}
+
+.placeholder-map {
+    background-image: repeating-linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111), repeating-linear-gradient(45deg, #111 25%, #050505 25%, #050505 75%, #111 75%, #111);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .spacing-xl {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .display-4, .display-5 {
+        font-size: 2.5rem;
+    }
+    .unidade-nav .nav-link {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Custom form placeholders */
+#contato .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1; /* Firefox fix */
+}

@@ -13,22 +13,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. Navbar Scroll Style
+    
     const navbar = document.getElementById('mainNav');
+    const headerLogo = document.getElementById('headerLogo');
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
+            if (headerLogo) headerLogo.src = 'assets/img/logo.jpg';
         } else {
             navbar.classList.remove('scrolled');
+            if (headerLogo) headerLogo.src = 'assets/img/logo-fundo.png';
         }
     });
 
     // Run once on load just in case page is not at top
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
+        if (headerLogo) headerLogo.src = 'assets/img/logo.jpg';
+    } else {
+        if (headerLogo) headerLogo.src = 'assets/img/logo-fundo.png';
     }
 
-    // 3. Smooth Scroll and collapse mobile menu for nav links
+// 3. Smooth Scroll and collapse mobile menu for nav links
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .scroll-indicator a, .btn-aula');
     const bsCollapse = new bootstrap.Collapse(document.getElementById('navbarContent'), { toggle: false });
     
@@ -73,6 +80,32 @@ document.addEventListener('DOMContentLoaded', () => {
         cityDisplayElements.forEach(el => {
             el.textContent = cityName;
         });
+        // Sync multiple tab groups
+        document.querySelectorAll('.unidade-nav .nav-link').forEach(btn => {
+            if (btn.getAttribute('data-city') === cityName) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Update Prices
+        if (cityName === 'Juazeiro') {
+            document.querySelectorAll('.preco-anual').forEach(el => el.textContent = 'R$ L');
+            document.querySelectorAll('.preco-mensal').forEach(el => el.textContent = 'R$ M');
+            document.querySelectorAll('.preco-recorrente').forEach(el => el.textContent = 'R$ M');
+            document.querySelectorAll('.preco-individual').forEach(el => el.textContent = 'R$ N');
+            document.querySelectorAll('.preco-familia-3').forEach(el => el.textContent = 'R$ O');
+            document.querySelectorAll('.preco-familia-5').forEach(el => el.textContent = 'R$ P');
+        } else {
+            document.querySelectorAll('.preco-anual').forEach(el => el.textContent = 'R$ X');
+            document.querySelectorAll('.preco-mensal').forEach(el => el.textContent = 'R$ Y');
+            document.querySelectorAll('.preco-recorrente').forEach(el => el.textContent = 'R$ Y');
+            document.querySelectorAll('.preco-individual').forEach(el => el.textContent = 'R$ Z');
+            document.querySelectorAll('.preco-familia-3').forEach(el => el.textContent = 'R$ B');
+            document.querySelectorAll('.preco-familia-5').forEach(el => el.textContent = 'R$ D');
+        }
+
 
         // Update WhatsApp Links
         planButtons.forEach(btn => {

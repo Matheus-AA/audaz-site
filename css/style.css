@@ -314,3 +314,9 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link, .btn-uppercase {
     color: rgba(255, 255, 255, 0.7) !important;
     opacity: 1; /* Firefox fix */
 }
+
+html, body { overflow-x: hidden; width: 100%; }
+@media (max-width: 991px) { .navbar-collapse { background-color: var(--color-black); padding: 1rem; border-radius: 0.5rem; text-align: center; } .navbar-collapse .nav-link { color: white !important; } }
+ /* Roupas Loja */
+.shop-img { width: 100%; max-width: 350px; margin: 0 auto; display: block; }
+@media (min-width: 768px) { .shop-img { width: 92%; max-width: none; } }
